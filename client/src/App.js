@@ -11,6 +11,8 @@ import { setContext } from '@apollo/client/link/context';
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Nav from './components/Nav';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import SingleBabysitter from './pages/SingleBabysitter';
@@ -41,7 +43,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-            <Nav />
+            <Header />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
@@ -51,6 +53,7 @@ function App() {
               <Route exact path="/babysitters/:babysitterId" component={SingleBabysitter} />
               <Route component={NoMatch} />
             </Switch>
+            <Footer />
         </div>
       </Router>
     </ApolloProvider>

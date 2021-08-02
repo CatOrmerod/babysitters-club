@@ -41,7 +41,7 @@ const SingleBabysitter = () => {
             lineHeight: '1.5',
           }}
         >
-          {babysitter.babysitterText}
+          {babysitter.babysitterAbout}
         </blockquote>
       </div>
 
