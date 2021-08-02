@@ -10,9 +10,11 @@ import { setContext } from '@apollo/client/link/context';
 
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
 import Nav from './components/Nav';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import SingleBabysitter from './pages/SingleBabysitter';
+import Profile from './pages/Profile';
 
 
 const httpLink = createHttpLink({
@@ -44,6 +46,9 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/me" component={Profile} />
+              <Route exact path="/profiles/:username" component={Profile} />
+              <Route exact path="/babysitters/:babysitterId" component={SingleBabysitter} />
               <Route component={NoMatch} />
             </Switch>
         </div>
