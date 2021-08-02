@@ -1,4 +1,4 @@
 const User = require('./User');
-// const Babysitter = require('./Babysitter');
+const Babysitter = require('./Babysitter');
 
-module.exports = { User };
+module.exports = { User, Babysitter };
