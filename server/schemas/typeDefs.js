@@ -8,6 +8,7 @@ type User {
   email: String
   password: String
   babysitters: [Babysitter]!
+  savedBabysitters: [Babysitter]!
 }
 
 type Babysitter {
@@ -37,6 +38,20 @@ type Auth {
   user: User
 }
 
+input babysitterInput {
+  _id: ID
+  babysitterAbout: String
+  babysitterEmail: String
+  babysitterLoc: String
+  babysitterCert: String
+  babysitterPic: String
+  babysitterPh: String
+  babysitterAuthor: String
+  babysitterFirst: String
+  babysitterLast: String
+  createdAt: String
+}
+
 type Query {
   users: [User]
   user(email: String!): User
@@ -52,6 +67,8 @@ type Mutation {
   addRating(babysitterId: ID!, ratingText: String!): Babysitter
   removeBabysitter(babysitterId: ID!): Babysitter
   removeRating(babysitterId: ID!, ratingId: ID!): Babysitter
+  saveBabysitter(babysitterId: ID!): User
+  removeSavedBabysitter(babysitterId: String!): User
 }
 `;
 

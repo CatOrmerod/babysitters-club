@@ -17,6 +17,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import SingleBabysitter from './pages/SingleBabysitter';
 import Profile from './pages/Profile';
+import SavedBabysitters from './pages/SavedBabysitters';
 
 
 const httpLink = createHttpLink({
@@ -51,6 +52,7 @@ function App() {
               <Route exact path="/me" component={Profile} />
               <Route exact path="/profiles/:username" component={Profile} />
               <Route exact path="/babysitters/:babysitterId" component={SingleBabysitter} />
+              <Route exact path="/saved" component={SavedBabysitters} />
               <Route component={NoMatch} />
             </Switch>
             <Footer />

@@ -7,7 +7,11 @@ export const QUERY_USER = gql`
       email
       babysitters {
         _id
-        babysitterText
+        babysitterAbout
+        babysitterLoc
+        babysitterCert
+        babysitterPic
+        babysitterPh
         createdAt
       }
     }
@@ -17,7 +21,11 @@ export const QUERY_BABYSITTERS = gql`
   query getBabysitters{
     babysitters {
       _id
-      babysitterText
+      babysitterAbout
+      babysitterLoc
+      babysitterCert
+      babysitterPic
+      babysitterPh
       babysitterAuthor
       createdAt
     }
@@ -28,7 +36,11 @@ export const QUERY_SINGLE_BABYSITTER = gql`
   query getSingleBabysitter($babysitterId: ID!) {
     babysitter(babysitterId: $babysitterId) {
       _id
-      babysitterText
+      babysitterAbout
+      babysitterLoc
+      babysitterCert
+      babysitterPic
+      babysitterPh
       babysitterAuthor
       createdAt
       ratings {
@@ -48,7 +60,21 @@ export const QUERY_ME = gql`
       email
       babysitters {
         _id
-        babysitterText
+        babysitterAbout
+        babysitterLoc
+        babysitterCert
+        babysitterPic
+        babysitterPh
+        babysitterAuthor
+        createdAt
+      }
+      savedBabysitters {
+        _id
+        babysitterAbout
+        babysitterLoc
+        babysitterCert
+        babysitterPic
+        babysitterPh
         babysitterAuthor
         createdAt
       }

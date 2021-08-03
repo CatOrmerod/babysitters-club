@@ -24,7 +24,11 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  babysitters: [Babysitter.schema]
+  babysitters: [Babysitter.schema],
+  savedBabysitters: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Babysitter',
+  }]
 });
 
 // set up pre-save middleware to create password

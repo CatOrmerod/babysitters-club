@@ -35,10 +35,20 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_BABYSITTER = gql`
-  mutation addBabysitter($babysitterText: String!) {
-    addBabysitter(babysitterText: $babysitterText) {
+  mutation addBabysitter(
+    $babysitterAbout: String!
+    $babysitterLoc: String
+    $babysitterCert: String
+    $babysitterPic: String
+    $babysitterPh: String
+    ) {
+    addBabysitter(babysitterAbout: $babysitterAbout, babysitterLoc: $babysitterLoc, babysitterCert: $babysitterCert, babysitterPic: $babysitterPic, babysitterPh: $babysitterPh) {
       _id
-      babysitterText
+      babysitterAbout
+      babysitterLoc
+      babysitterCert
+      babysitterPic
+      babysitterPh
       babysitterAuthor
       createdAt
       ratings {
@@ -53,7 +63,11 @@ export const ADD_RATING = gql`
   mutation addRating($babysitterId: ID!, $ratingText: String!) {
     addRating(babysitterId: $babysitterId, ratingText: $ratingText) {
       _id
-      babysitterText
+      babysitterAbout
+      babysitterLoc
+      babysitterCert
+      babysitterPic
+      babysitterPh
       babysitterAuthor
       createdAt
       ratings {
@@ -61,6 +75,44 @@ export const ADD_RATING = gql`
         ratingText
         createdAt
       }
+    }
+  }
+`;
+
+export const SAVE_BABYSITTER = gql`
+  mutation saveBabysitter($babysitterId: ID!) {
+    saveBabysitter(babysitterId: $babysitterId) {
+      _id
+      email
+      savedBabysitters {
+        _id
+        babysitterAbout
+        babysitterLoc
+        babysitterCert
+        babysitterPic
+        babysitterPh
+        babysitterAuthor
+        createdAt
+      }
+    }
+  }
+`;
+
+export const REMOVE_SAVED_BABYSITTER = gql`
+  mutation removeSavedBabysitter($babysitterId: String!) {
+    removeSavedBabysitter(babysitterId: $babysitterId) {
+        _id
+        email
+        savedBabysitters {
+          _id
+          babysitterAbout
+          babysitterLoc
+          babysitterCert
+          babysitterPic
+          babysitterPh
+          babysitterAuthor
+          createdAt
+        }
     }
   }
 `;
