@@ -57,9 +57,9 @@ const RatingForm = ({ babysitterId }) => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="commentText"
+                name="ratingText"
                 placeholder="Add your comment..."
-                value={ratingText}
+                
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}

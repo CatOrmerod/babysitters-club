@@ -7,15 +7,15 @@ import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth';
 
 const Profile = () => {
-  const { firstName: userParam } = useParams();
+  const { email: userParam } = useParams();
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { firstName: userParam },
+    variables: { email: userParam },
   });
 
   const user = data?.me || data?.user || {};
   // redirect to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.firstName === userParam) {
+  if (Auth.loggedIn() && Auth.getProfile().data.email === userParam) {
     return <Redirect to="/me" />;
   }
 
@@ -23,7 +23,7 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
-  if (!user?.firstName) {
+  if (!user?.email) {
     return (
       <h4>
         You need to be logged in to see this. Use the navigation links above to
@@ -36,7 +36,7 @@ const Profile = () => {
     <div>
       <div className="flex-row justify-center mb-3">
         <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Viewing {userParam ? `${user.firstName}'s` : 'your'} profile.
+          Viewing {userParam ? `${user.email}'s` : 'your'} profile.
         </h2>
 
         <div className="col-12 col-md-10 mb-5">

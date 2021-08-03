@@ -25,7 +25,7 @@ const Home = () => {
           ) : (
             <BabysitterList
               babysitters={babysitters}
-              title="Some Feed for Thought(s)..."
+              title="Babysitters in your area"
             />
           )}
         </div>

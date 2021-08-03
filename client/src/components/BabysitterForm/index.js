@@ -47,7 +47,7 @@ const BabysitterForm = () => {
           babysitterCert: formState.babysitterCert,
           babysitterPic: formState.babysitterPic,
           babysitterPh: formState.babysitterPh,
-          babysitterAuthor: Auth.getProfile().data.email,
+          babysitterAuthor: Auth.getProfile().data.firstName,
           babysitterFirst: Auth.getProfile().data.firstName,
           babysitterLast: Auth.getProfile().data.lastName,
           babysitterEmail: Auth.getProfile().data.email,
@@ -137,7 +137,7 @@ const BabysitterForm = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to share your thoughts. Please{' '}
+          You need to be logged in to add yourself to our database. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}

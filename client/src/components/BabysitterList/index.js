@@ -21,7 +21,7 @@ const BabysitterList = ({
               {showUsername ? (
                 <Link
                   className="text-light"
-                  to={`/profiles/${babysitter.babysitterAuthor}`}
+                  to={`/babysitters/${babysitter._id}`}
                 >
                   {babysitter.babysitterAuthor} <br />
                   <span style={{ fontSize: '1rem' }}>
