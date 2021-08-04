@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { Button, Form, Message } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_BABYSITTER } from '../../utils/mutations';
 import { QUERY_BABYSITTERS, QUERY_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
+import ImageUpload from '../ImageUpload';
 
 const BabysitterForm = () => {
-  const [formState, setFormState] = useState({ 
+  const [formState, setFormState] = useState({
     babysitterAbout: '',
     babysitterLoc: '',
     babysitterCert: '',
@@ -67,82 +69,76 @@ const BabysitterForm = () => {
   };
 
   return (
-    <div>
+    <>
       <h3>Details of your profile</h3>
 
       {Auth.loggedIn() ? (
-        <>
-          
-          <form
-            className="flex-row justify-center justify-space-between-md align-center"
-            onSubmit={handleFormSubmit}
-          >
-            <div className="col-12 col-lg-9">
-              <textarea
+
+        <Form className='menu-item-form' onSubmit={handleFormSubmit}>
+          <Form.Group widths='equal'>
+            <Form.Field>
+              <label htmlFor='form-about'>About</label>
+              <input
                 name="babysitterAbout"
                 placeholder="Tell us all about yourself"
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
-              ></textarea>
-            </div>
-            <div className="col-12 col-lg-9">
-              <textarea
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor='form-loc'>Postcode</label>
+              <input
                 name="babysitterLoc"
                 placeholder="Enter your postcode"
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
-              ></textarea>
-            </div>
-            <div className="col-12 col-lg-9">
-              <textarea
+              />
+            </Form.Field>
+
+            <Form.Field>
+              <label htmlFor='form-cert'>Certificates</label>
+              <input
                 name="babysitterCert"
                 placeholder="What certifications do you have?"
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
-              ></textarea>
-            </div>
-            <div className="col-12 col-lg-9">
-              <textarea
-                name="babysitterPic"
-                placeholder="Add a link for a pic of yourself"
-                className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-            <div className="col-12 col-lg-9">
-              <textarea
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor='form-image-upload'>Image</label>
+              <ImageUpload />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor='form-ph'>Phone Number:</label>
+              <input
                 name="babysitterPh"
                 placeholder="Enter your phone number (it won't be displayed)"
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
-              ></textarea>
-            </div>
+              />
+            </Form.Field>
+            </Form.Group>
 
-            <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Babysitter
-              </button>
-            </div>
+            <Button type='submit'>Save</Button>
+
             {error && (
               <div className="col-12 my-3 bg-danger text-white p-3">
                 {error.message}
               </div>
             )}
-          </form>
-        </>
-      ) : (
-        <p>
-          You need to be logged in to add yourself to our database. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
-        </p>
-      )}
-    </div>
-  );
-};
+          </Form>
+          ) : (
+          <p>
+            You need to be logged in to add yourself to our database. Please{' '}
+            <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+          </p>
+          )}  
+          </>
 
-export default BabysitterForm;
+      );
+};
+      export default BabysitterForm;
