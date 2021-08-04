@@ -89,7 +89,7 @@ const BabysitterForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="babysitterLoc"
-                placeholder="Enter your suburb and postcode"
+                placeholder="Enter your postcode"
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
