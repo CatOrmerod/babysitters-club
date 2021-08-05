@@ -36,7 +36,6 @@ const babysitterSchema = new Schema({
     },
     babysitterPic: {
       type: String,
-      required: true,
       trim: true,
     },
     babysitterPh: {

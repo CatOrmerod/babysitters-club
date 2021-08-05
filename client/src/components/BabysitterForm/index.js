@@ -5,7 +5,8 @@ import { useMutation } from '@apollo/client';
 import { ADD_BABYSITTER } from '../../utils/mutations';
 import { QUERY_BABYSITTERS, QUERY_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
-import ImageUpload from '../ImageUpload';
+// import ImageUpload from '../ImageUpload';
+import Location from '../Location';
 
 const BabysitterForm = () => {
   const [formState, setFormState] = useState({
@@ -30,11 +31,11 @@ const BabysitterForm = () => {
       }
 
       // update me object's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, babysitters: [...me.babysitters, addBabysitter] } },
-      });
+      // const { me } = cache.readQuery({ query: QUERY_ME });
+      // cache.writeQuery({
+      //   query: QUERY_ME,
+      //   data: { me: { ...me, babysitters: [...me.babysitters, addBabysitter] } },
+      // });
     },
   });
 
@@ -58,6 +59,7 @@ const BabysitterForm = () => {
     } catch (e) {
       console.error(e);
     }
+    //clear fields after add babysitter
   };
 
   const handleChange = (event) => {
@@ -87,6 +89,15 @@ const BabysitterForm = () => {
               />
             </Form.Field>
             <Form.Field>
+              <label htmlFor='form-location'>Location</label>
+
+              <Location 
+              handleChange={handleChange}
+              formState={formState}
+              setFormState={setFormState}/>
+            </Form.Field>
+            
+            {/* <Form.Field>
               <label htmlFor='form-loc'>Postcode</label>
               <input
                 name="babysitterLoc"
@@ -95,7 +106,7 @@ const BabysitterForm = () => {
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
               />
-            </Form.Field>
+            </Form.Field> */}
 
             <Form.Field>
               <label htmlFor='form-cert'>Certificates</label>
@@ -109,7 +120,7 @@ const BabysitterForm = () => {
             </Form.Field>
             <Form.Field>
               <label htmlFor='form-image-upload'>Image</label>
-              <ImageUpload />
+              {/* <ImageUpload /> */}
             </Form.Field>
             <Form.Field>
               <label htmlFor='form-ph'>Phone Number:</label>
