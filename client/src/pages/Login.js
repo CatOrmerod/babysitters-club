@@ -4,6 +4,18 @@ import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
+// reactstrap components
+import {
+  Button,
+  Card,
+  CardTitle,
+  Form,
+  Input,
+  Container,
+  Row,
+  Col,
+} from "reactstrap";
+
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
@@ -28,43 +40,106 @@ function Login(props) {
       [name]: value,
     });
   };
-
+  document.documentElement.classList.remove("nav-open");
+  React.useEffect(() => {
+    document.body.classList.add("login-page");
+    document.body.classList.add("full-screen");
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    return function cleanup() {
+      document.body.classList.remove("login-page");
+      document.body.classList.remove("full-screen");
+    };
+  });
   return (
-    <div className="container my-1">
-      <Link to="/signup">← Go to Signup</Link>
-
-      <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email address:</label>
-          <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-          />
+    <>
+      <div className="wrapper">
+        <div
+          className="page-header"
+          style={{
+            backgroundImage:
+              "url(" +
+              require("/Users/catormerod/OneDrive/Coding Bootcamp/projects/babysitter/client/src/assets/images/beach-mother-child-silhouette.jpg").default +
+              ")",
+          }}
+        >
+          <div className="filter" />
+          <Container>
+            <Row>
+            <Col className="ml-auto" lg="6" md="6" sm="7" xs="12">
+                <div className="info info-horizontal">
+                  <div className="icon">
+                    <i className="fa fa-umbrella" />
+                  </div>
+                  <div className="description">
+                    <h3>Find Babysitters in your area</h3>
+                    <p>
+                      Check out our babysitter profiles and see what other parents have to say.
+                    </p>
+                  </div>
+                </div>
+                <div className="info info-horizontal">
+                  <div className="icon">
+                    <i className="fa fa-map-signs" />
+                  </div>
+                  <div className="description">
+                    <h3>Save your Favourites</h3>
+                    <p>
+                      Each time you find a babysitter you like, save them to your favourites so that you can easily find and contact them again. 
+                    </p>
+                  </div>
+                </div>
+                <div className="info info-horizontal">
+                  <div className="icon">
+                    <i className="fa fa-user-secret" />
+                  </div>
+                  <div className="description">
+                    <h3>Want to do some babysitting yourself?</h3>
+                    <p>
+                      Add your own profile so that other parents can easily find your and contact you through the website.
+                    </p>
+                  </div>
+                </div>
+              </Col>
+              <Col className="ml-auto mr-auto" lg="4" md="6" sm="6">
+                <Card className="card-register">
+                  <CardTitle tag="h3">Login</CardTitle>
+                  <Form onSubmit={handleFormSubmit}>
+                    <label htmlFor="email">Email</label>
+                    <Input
+                      placeholder="youremail@test.com"
+                      name="email"
+                      type="email"
+                      id="email"
+                      onChange={handleChange}
+                    />
+                    <label htmlFor="pwd">Password</label>
+                    <Input
+                      placeholder="******"
+                      name="password"
+                      type="password"
+                      id="pwd"
+                      onChange={handleChange}
+                    />
+                    {error ? (
+                      <div>
+                        <p className="error-text">The provided credentials are incorrect</p>
+                      </div>
+                    ) : null}
+                    <Button block type="submit" className="btn-round" color="default">
+                      Submit
+                    </Button>
+                  </Form>
+                  <div className="signup">
+                      <Link to="/signup">Need to set up an account?{" "}</Link>
+                  </div>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange}
-          />
-        </div>
-        {error ? (
-          <div>
-            <p className="error-text">The provided credentials are incorrect</p>
-          </div>
-        ) : null}
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
+      </div>
+    </>
   );
 }
 

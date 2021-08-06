@@ -3,6 +3,17 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
+// reactstrap components
+import {
+  Button,
+  Card,
+  CardTitle,
+  Form,
+  Input,
+  Container,
+  Row,
+  Col,
+} from "reactstrap";
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -29,58 +40,85 @@ function Signup(props) {
       [name]: value,
     });
   };
-
+  document.documentElement.classList.remove("nav-open");
+  React.useEffect(() => {
+    document.body.classList.add("register-page");
+    document.body.classList.add("full-screen");
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+    return function cleanup() {
+      document.body.classList.remove("register-page");
+      document.body.classList.remove("full-screen");
+    };
+  });
   return (
-    <div className="container my-1">
-      <Link to="/login">← Go to Login</Link>
-
-      <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
-          <input
-            placeholder="First"
-            name="firstName"
-            type="firstName"
-            id="firstName"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            placeholder="Last"
-            name="lastName"
-            type="lastName"
-            id="lastName"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
-          <input
-            placeholder="youremail@test.com"
-            name="email"
-            type="email"
-            id="email"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
-          <input
-            placeholder="******"
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
+    <>
+      <div className="wrapper">
+        <div
+          className="page-header"
+          style={{
+            backgroundImage:
+              "url(" +
+              require("/Users/catormerod/OneDrive/Coding Bootcamp/projects/babysitter/client/src/assets/images/beach-mother-child-silhouette.jpg").default +
+              ")",
+          }}
+        >
+        <div className="filter" />
+        <Container>
+          <Row>
+            <Col className="ml-auto mr-auto" lg="4" md="6" sm="6">
+              <Card className="card-register">
+                <CardTitle tag="h3">Sign Up for an Account</CardTitle>
+                <Form onSubmit={handleFormSubmit}>
+                  <label htmlFor="firstName">First Name:</label>
+                  <Input
+                    placeholder="First"
+                    name="firstName"
+                    type="firstName"
+                    id="firstName"
+                    onChange={handleChange}
+                  />
+                  <div>
+                    <label htmlFor="lastName">Last Name:</label>
+                    <Input
+                      placeholder="Last"
+                      name="lastName"
+                      type="lastName"
+                      id="lastName"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email">Email:</label>
+                    <Input
+                      placeholder="youremail@test.com"
+                      name="email"
+                      type="email"
+                      id="email"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="pwd">Password:</label>
+                    <Input
+                      placeholder="******"
+                      name="password"
+                      type="password"
+                      id="pwd"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="flex-row flex-end">
+                    <Button type="submit">Submit</Button>
+                  </div>
+                </Form>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+      </div>
+    </>
   );
 }
 
