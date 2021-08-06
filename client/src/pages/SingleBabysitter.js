@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
+import { Container, CardTitle, CardBody, CardImg, Card } from 'reactstrap';
 import { saveBabysitterIds, getSavedBabysitterIds } from '../utils/localStorage';
 // Import the `useParams()` hook
 import { useParams } from 'react-router-dom';
@@ -48,7 +49,7 @@ const SingleBabysitter = () => {
       // const response = await saveBabysitter(bookToSave, token);
       // use SAVE_BOOK mutation
       await saveBabysitter({
-      
+
         variables: { babysitterId }
       });
 
@@ -66,44 +67,44 @@ const SingleBabysitter = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="my-3">
-      <h3 className="card-header bg-dark text-light p-2 m-0">
-        {babysitter.babysitterAuthor} <br />
-        <span style={{ fontSize: '1rem' }}>
-          had this thought on {babysitter.createdAt}
-        </span>
-      </h3>
-      <div className="bg-light py-4">
-        <blockquote
-          className="p-4"
-          style={{
-            fontSize: '1.5rem',
-            fontStyle: 'italic',
-            border: '2px dotted #1a1a1a',
-            lineHeight: '1.5',
-          }}
-        >
-          {babysitter.babysitterAbout}
-        </blockquote>
-      </div>
-      {Auth.loggedIn() && (
-        <Button
-          disabled={savedBabysitterIds?.some((savedBabysitterId) => savedBabysitterId === babysitter.babysitterId)}
-          className='btn-block btn-info'
-          onClick={() => handleSaveBabysitter(babysitter.babysitterId)}>
-          {savedBabysitterIds?.some((savedBabysitterId) => savedBabysitterId === babysitter.babysitterId)
-            ? 'This babysitter has already been saved!'
-            : 'Save this Babysitter!'}
-        </Button>
-      )}
+    <Container className="my-3">
+      <Card>
+        <CardImg top width="90%" src={babysitter.BabysitterPic} alt="" className='img' style={{ width: '90%', maxWidth: '250px', textAlign: 'center' }} />
+        <CardTitle tag="h3" className="card-header bg-dark text-light p-2 m-0">
+          {babysitter.babysitterAuthor} <br />
+        </CardTitle>
+        <CardBody className="bg-light py-4">
+          <blockquote
+            className="p-4"
+            style={{
+              fontSize: '1.5rem',
+              fontStyle: 'italic',
+              border: '2px dotted #1a1a1a',
+              lineHeight: '1.5',
+            }}
+          >
+            {babysitter.babysitterAbout}
+          </blockquote>
+        </CardBody>
+        {Auth.loggedIn() && (
+          <Button
+            disabled={savedBabysitterIds?.some((savedBabysitterId) => savedBabysitterId === babysitter.babysitterId)}
+            className='btn-block btn-info'
+            onClick={() => handleSaveBabysitter(babysitter.babysitterId)}>
+            {savedBabysitterIds?.some((savedBabysitterId) => savedBabysitterId === babysitter.babysitterId)
+              ? 'This babysitter has already been saved!'
+              : 'Save this Babysitter!'}
+          </Button>
+        )}
 
-      <div className="my-5">
-        <RatingList ratings={babysitter.ratings} />
-      </div>
-      <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
-        <RatingForm babysitterId={babysitter._id} />
-      </div>
-    </div>
+        <div className="my-5">
+          <RatingList ratings={babysitter.ratings} />
+        </div>
+        <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
+          <RatingForm babysitterId={babysitter._id} />
+        </div>
+      </Card>
+    </Container>
   );
 };
 
