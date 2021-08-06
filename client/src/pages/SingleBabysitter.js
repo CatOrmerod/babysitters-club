@@ -30,7 +30,7 @@ const SingleBabysitter = () => {
     // pass URL parameter
     variables: { babysitterId: babysitterId },
   });
-
+console.log(babysitterId)
   const babysitter = data?.babysitter || {};
 
   // create function to handle saving a book to our database
@@ -62,14 +62,15 @@ const SingleBabysitter = () => {
       console.error(err);
     }
   };
-
+console.log(babysitter)
   if (loading) {
     return <div>Loading...</div>;
   }
   return (
-    <Container className="my-3">
+
+    <Container>
       <Card>
-        <CardImg top width="90%" src={babysitter.BabysitterPic} alt="" className='img' style={{ width: '90%', maxWidth: '250px', textAlign: 'center' }} />
+        <CardImg top width="90%" src={babysitter.babysitterPic} alt="" className='img' style={{ width: '90%', maxWidth: '250px', textAlign: 'center' }} />
         <CardTitle tag="h3" className="card-header bg-dark text-light p-2 m-0">
           {babysitter.babysitterAuthor} <br />
         </CardTitle>

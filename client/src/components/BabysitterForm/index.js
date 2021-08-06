@@ -136,7 +136,8 @@ console.log(formState)
                     <small>Avatar</small>
                     </h4>
                     <ImageUpload avatar 
-                    setFormState={setFormState}/>
+                    setFormState={setFormState}
+                    name="babysitterPic"/>
                     </div>
                   </Col>
                 </Row>

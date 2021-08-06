@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
+import { Jumbotron, Container, Col, Card, CardTitle, CardBody, CardText, Button, CardImg } from 'reactstrap';
 
 import Auth from '../utils/auth';
 import { useMutation, useQuery } from '@apollo/client';
@@ -66,27 +66,27 @@ const SavedBabysitters = () => {
             ? `Viewing ${userData.savedBabysitters.length} saved ${userData.savedBabysitters.length === 1 ? 'babysitter' : 'babysitters'}:`
             : 'You have no saved babysitters!'}
         </h2>
-        <CardColumns>
+        <Col>
           {userData.savedBabysitters.map((babysitter) => {
             return (
-              <Card key={babysitter.babysitterId} border='dark'>
-                {babysitter.babysitterPic ? <Card.Img src={babysitter.babysitterPic} alt={`The cover for ${babysitter.babysitterAuthor }`} variant='top' /> : null}
-                <Card.Body>
-                  <Card.Title>
+              <Card key={babysitter._id} border='dark'>
+                {babysitter.babysitterPic ? <CardImg src={babysitter.babysitterPic} alt={`The cover for ${babysitter.babysitterAuthor }`} className="img" variant='top' /> : null}
+                <CardBody>
+                  <CardTitle>
                     
                       {babysitter.babysitterFirst}
                     
-                  </Card.Title>
+                  </CardTitle>
                   <p className='small'>Name: {babysitter.babysitterFirst}</p>
-                  <Card.Text>{babysitter.babysitterAbout}</Card.Text>
+                  <CardText>{babysitter.babysitterAbout}</CardText>
                   <Button className='btn-block btn-danger' onClick={() => handleDeleteBabysitter(babysitter.babysitterId)}>
                     Delete this Babysitter!
                   </Button>
-                </Card.Body>
+                </CardBody>
               </Card>
             );
           })}
-        </CardColumns>
+        </Col>
       </Container>
     </>
   );
