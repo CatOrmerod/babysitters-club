@@ -5,7 +5,8 @@
   "main": "server/server.js",
   "dependencies": {
     "firebase": "^8.8.1",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "concurrently": "^6.2.0"
