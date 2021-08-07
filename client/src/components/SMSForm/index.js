@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import './SMSForm.css';
 
-function SMSForm (props) {
-    const [message, setMessage] = useState({ to: '', body: ''})
+function SMSForm ({ babysitterPh }) {
+    const [ message, setMessage ] = useState({ to: babysitterPh, body: ''})
     const [ submitting, setSubmitting ] = useState(false)
-    const [error, setError] = useState(false)
-    
+    const [ error, setError ] = useState(false)
     function onHandleChange(event) {
         const name = event.target.getAttribute('name');
         setMessage({
@@ -27,7 +26,7 @@ function SMSForm (props) {
             .then(data => {
                 if (data.success) {
                     setMessage({
-                        to: '',
+                        to: babysitterPh,
                         body: ''
                     })
                     setSubmitting(false);
@@ -43,7 +42,6 @@ function SMSForm (props) {
                 onSubmit={onSubmit}
                 className={error ? 'error sms-form' : 'sms-form'}
             >
-                
                 <div>
                     <label htmlFor="body">Body:</label>
                     <textarea
