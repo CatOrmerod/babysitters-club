@@ -76,7 +76,7 @@ const RatingForm = ({ babysitterId }) => {
       ) : (
         <p>
           You need to be logged in to share your review. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+          <Link to="/login">login</Link> or <Link to="/register">register.</Link>
         </p>
       )}
     </div>

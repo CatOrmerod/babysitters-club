@@ -40,30 +40,8 @@ function Signup(props) {
       [name]: value,
     });
   };
-  document.documentElement.classList.remove("nav-open");
-  React.useEffect(() => {
-    document.body.classList.add("register-page");
-    document.body.classList.add("full-screen");
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
-    return function cleanup() {
-      document.body.classList.remove("register-page");
-      document.body.classList.remove("full-screen");
-    };
-  });
   return (
     <>
-      <div className="wrapper">
-        <div
-          className="page-header"
-          style={{
-            backgroundImage:
-              "url(" +
-              require("/Users/catormerod/OneDrive/Coding Bootcamp/projects/babysitter/client/src/assets/images/beach-mother-child-silhouette.jpg").default +
-              ")",
-          }}
-        >
-        <div className="filter" />
         <Container>
           <Row>
             <Col className="ml-auto mr-auto" lg="4" md="6" sm="6">
@@ -116,8 +94,6 @@ function Signup(props) {
             </Col>
           </Row>
         </Container>
-      </div>
-      </div>
     </>
   );
 }

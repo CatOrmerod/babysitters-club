@@ -55,11 +55,6 @@ const SavedBabysitters = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light bg-dark'>
-        <Container>
-          <h1>Viewing saved babysitters!</h1>
-        </Container>
-      </Jumbotron>
       <Container>
         <h2>
           {userData.savedBabysitters?.length
@@ -69,7 +64,7 @@ const SavedBabysitters = () => {
         <Col>
           {userData.savedBabysitters.map((babysitter) => {
             return (
-              <Card key={babysitter._id} border='dark'>
+              <Card key={babysitter.babysitterId} border='dark'>
                 {babysitter.babysitterPic ? <CardImg src={babysitter.babysitterPic} alt={`The cover for ${babysitter.babysitterAuthor }`} className="img" variant='top' /> : null}
                 <CardBody>
                   <CardTitle>

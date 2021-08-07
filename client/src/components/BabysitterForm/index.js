@@ -15,7 +15,6 @@ import {
   Container,
   Row,
   Col,
-  CustomInput,
 } from "reactstrap";
 
 const BabysitterForm = () => {
@@ -86,46 +85,6 @@ console.log(formState)
 
       {Auth.loggedIn() ? (
         <Container>
-          {/* <Row>
-            <div className="profile-picture">
-              <div
-                className="fileinput fileinput-new"
-                data-provides="fileinput"
-              >
-                <div className="fileinput-new img-no-padding">
-                  <img
-                    alt="..."
-                    src={
-                      require("/Users/catormerod/OneDrive/Coding Bootcamp/projects/babysitter/client/src/assets/images/beach-fun.jpeg").default
-                    }
-                  />
-                </div>
-                <div className="fileinput-preview fileinput-exists img-no-padding" />
-                <div>
-                  <Button
-                    className="btn-file btn-round"
-                    color="default"
-                    outline
-                  >
-                    <span className="fileinput-new">Change Photo</span>
-                    <span className="fileinput-exists">Change</span>
-                    <input name="..." type="file" />
-                  </Button>
-                  <br />
-                  <Button
-                    className="btn-link fileinput-exists"
-                    color="danger"
-                    data-dismiss="fileinput"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="fa fa-times" />
-                    Remove
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </Row> */}
           <Row>
             <Col className="ml-auto mr-auto" md="6">
               <Form className='babysitter-form' onSubmit={handleFormSubmit}>
@@ -205,54 +164,6 @@ console.log(formState)
               </Form>
             </Col>
           </Row>
-          {/* <Form className='babysitter-form' onSubmit={handleFormSubmit}>
-            <Form.Group widths='equal'>
-              <Form.Field>
-                <label htmlFor='form-about'>About</label>
-                <input
-                  name="babysitterAbout"
-                  placeholder="Tell us all about yourself"
-                  className="form-input w-100"
-                  style={{ lineHeight: '1.5', resize: 'vertical' }}
-                  onChange={handleChange}
-                />
-              </Form.Field>
-              <Form.Field>
-                <label htmlFor='form-location'>Location</label>
-
-                <Location
-                  handleChange={handleChange}
-                  formState={formState}
-                  setFormState={setFormState} />
-              </Form.Field>
-              <Form.Field>
-                <label htmlFor='form-cert'>Certificates</label>
-                <input
-                  name="babysitterCert"
-                  placeholder="What certifications do you have?"
-                  className="form-input w-100"
-                  style={{ lineHeight: '1.5', resize: 'vertical' }}
-                  onChange={handleChange}
-                />
-              </Form.Field>
-              <Form.Field>
-                <label htmlFor='form-image-upload'>Image</label>
-                <ImageUpload />
-              </Form.Field>
-              <Form.Field>
-                <label htmlFor='form-ph'>Phone Number:</label>
-                <input
-                  name="babysitterPh"
-                  placeholder="Enter your phone number (it won't be displayed)"
-                  className="form-input w-100"
-                  style={{ lineHeight: '1.5', resize: 'vertical' }}
-                  onChange={handleChange}
-                />
-              </Form.Field>
-            </Form.Group>
-
-            <Button type='submit'>Save</Button> */}
-
             {error && (
               <div className="col-12 my-3 bg-danger text-white p-3">
                 {error.message}
