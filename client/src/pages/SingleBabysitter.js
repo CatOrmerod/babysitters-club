@@ -50,7 +50,6 @@ console.log(babysitterId)
       // const response = await saveBabysitter(bookToSave, token);
       // use SAVE_BOOK mutation
       await saveBabysitter({
-
         variables: { babysitterId }
       });
 
@@ -70,12 +69,12 @@ console.log(babysitter)
   return (
 
     <Container>
-      <Card>
+      <Card style={{ maxWidth: '400px', textAlign: 'center' }}>
         <CardImg top width="90%" src={babysitter.babysitterPic} alt="" className='img' style={{ width: '90%', maxWidth: '250px', textAlign: 'center' }} />
-        <CardTitle tag="h3" className="card-header bg-dark text-light p-2 m-0">
+        <CardTitle tag="h3" >
           {babysitter.babysitterAuthor} <br />
         </CardTitle>
-        <CardBody className="bg-light py-4">
+        <CardBody >
           <blockquote
             className="p-4"
             style={{
@@ -98,7 +97,7 @@ console.log(babysitter)
               : 'Save this Babysitter!'}
           </Button>
         )}
-        <SMSForm />
+        <SMSForm babysitterPh={babysitter.babysitterPh} />
         <div className="my-5">
           <RatingList ratings={babysitter.ratings} />
         </div>
