@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form } from 'semantic-ui-react';
+import { Form, Input } from 'reactstrap';
 
 const Location = ({ handleChange, formState, setFormState }) => {
   // initial state, set state of suburbs array 
@@ -35,9 +35,9 @@ const Location = ({ handleChange, formState, setFormState }) => {
 
   return (
     <>
-      <Form.Field>
+      <Form>
         
-        <input
+        <Input
           name="babysitterLoc"
           placeholder="Enter your postcode"
           className="form-input w-100"
@@ -45,7 +45,7 @@ const Location = ({ handleChange, formState, setFormState }) => {
           onBlur={(e) => setSearch(e.target.value)}
           onChange={handleChange}
         />
-      </Form.Field>
+      </Form>
       {suburbs?.length ? <div>
         <select onChange={e => updateLocation(e.target.value)}>
           {suburbs.map(suburb => (
