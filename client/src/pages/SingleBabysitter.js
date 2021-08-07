@@ -8,6 +8,7 @@ import { useQuery, useMutation } from '@apollo/client';
 
 import RatingList from '../components/RatingList';
 import RatingForm from '../components/RatingForm';
+import SMSForm from '../components/SMSForm';
 import { SAVE_BABYSITTER } from '../utils/mutations'
 import Auth from '../utils/auth';
 import { QUERY_SINGLE_BABYSITTER } from '../utils/queries';
@@ -97,7 +98,7 @@ console.log(babysitter)
               : 'Save this Babysitter!'}
           </Button>
         )}
-
+        <SMSForm />
         <div className="my-5">
           <RatingList ratings={babysitter.ratings} />
         </div>
