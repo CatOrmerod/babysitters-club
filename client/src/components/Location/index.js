@@ -20,8 +20,6 @@ const Location = ({ handleChange, formState, setFormState }) => {
 
     const response = await fetch(url);
     const responseJson = await response.json();
-    console.log(responseJson.postalCodes)
-    console.log(responseJson)
     // Make sure responseJson has the array and use that array for set suburbs
     // API JSON -- results
     if (responseJson) {
