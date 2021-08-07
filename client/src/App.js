@@ -7,6 +7,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import './App.css';
 
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
@@ -19,7 +20,6 @@ import SingleBabysitter from './pages/SingleBabysitter';
 import Profile from './pages/Profile';
 import SavedBabysitters from './pages/SavedBabysitters';
 import Location from './components/Location';
-import { Message } from "semantic-ui-react";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -48,6 +48,7 @@ function App() {
           <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Signup} />
             <Route exact path="/me" component={Profile} />

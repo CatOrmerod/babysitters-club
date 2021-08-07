@@ -1,38 +1,134 @@
-.App {
-  text-align: center;
+/* Variables Styling*/
+:root {
+  --light: #EDF7F6;
+  --dark: #002E2C;
+  --pale: #B4869F;
+  --purple: #58355E;
+  --grey: #627C85;
+  --border-radius: 0.1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  text-decoration: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  
+/*Elements Selectors*/
+body {
+  background-color: var(--light);
+  color: var(--dark);
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+    
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 10px;
+  color: var(--purple);
+  font-weight: 700;
+  line-height: 1.1;
+  font-family:
 }
 
-.App-link {
-  color: #61dafb;
+p {
+  color: var(--dark);
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+  
+a {
+    color: var(--grey);
+}
+ 
+/* Center website */
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 10px ;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Cards Styling  */
+.card {
+  /* border: 2px solid var(--dark); */
+  /* border-radius: var(--border-radius); */
+  color: var(--light);
+  background-color: var(--grey);
+  margin: 0.625rem 0;
+  transition: all 0.5s ease-in-out;
+  /* box-shadow: 2px 2px var(--green); */
 }
+
+.img {
+  text-align: center;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  color: var(--light);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+
+}
+
+.card-header {
+  color: var(--dark);
+  background-color: var(--mauve);
+  padding: 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card-body {
+  padding: 0.25rem;
+}
+
+.card-item {
+  margin: 0.25rem 0;
+  padding: 0 0.25rem;
+  background-color: var(--light);
+  list-style: none;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Style the buttons */
+.btn {
+  font-size: 1.1rem;
+  text-decoration: none;
+  padding: 10px 5px;
+  width: 100%;
+  display: block;
+  margin: 15px 0;
+  border-radius: var(--border-radius);
+  color: var(--light);
+  border: none;
+  outline: 2px dashed var(--purple);
+  background-color: var(--purple);
+  transform: translate(-1px, -1px);
+}
+
+.btn:hover {
+  color: var(--mauve);
+  background-color: var(--purple);
+  transform: translate(0, 0);
+  /* box-shadow: 2px 2px var(--green); */
+}
+
+.wrapper {
+  -webkit-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  left: 0;
+  background-color: #FFFFFF;
+  position: relative;
+  z-index: 1; }
