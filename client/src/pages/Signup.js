@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
+import { AvForm, AvField } from 'availity-reactstrap-validation';
+
 // reactstrap components
 import {
   Button,
@@ -66,16 +68,20 @@ function Signup(props) {
                       onChange={handleChange}
                     />
                   </div>
-                  <div>
+                  <AvForm>
                     <label htmlFor="email">Email:</label>
-                    <Input
+                    <AvField
                       placeholder="youremail@test.com"
                       name="email"
                       type="email"
                       id="email"
+                      validate={{
+                        required: {value: true, errorMessage: 'Please enter an email address'},
+                        email: {value: true, errorMessage: 'Please enter a valid email address'}
+                    }}
                       onChange={handleChange}
                     />
-                  </div>
+                  </AvForm>
                   <div>
                     <label htmlFor="pwd">Password:</label>
                     <Input

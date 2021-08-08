@@ -4,13 +4,13 @@ import PropTypes from "prop-types";
 
 import { Button } from "reactstrap";
 
-import defaultImage from "../../assets/images/image_placeholder.jpg";
-import defaultAvatar from "../../assets/images/placeholder.jpg";
+// import defaultImage from "../../assets/images/image_placeholder.jpg";
+// import defaultAvatar from "../../assets/images/placeholder.jpg";
 
 function ImageUpload(props) {
   const [file, setFile] = React.useState();
   const [imagePreviewUrl, setImagePreviewUrl] = React.useState(
-    props.avatar ? defaultAvatar : defaultImage
+    props.avatar
   );
   const fileInput = React.useRef(null);
   const handleImageChange = (e) => {
@@ -37,7 +37,7 @@ function ImageUpload(props) {
   };
   const handleRemove = () => {
     props.setFormState(null);
-    setImagePreviewUrl(props.avatar ? defaultAvatar : defaultImage);
+    setImagePreviewUrl(props.avatar);
     fileInput.current.value = null;
   };
   return (

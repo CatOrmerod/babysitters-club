@@ -14,7 +14,7 @@ const Location = ({ handleChange, formState, setFormState }) => {
       babysitterLoc: loc
     })
   }
-  // calling API -- searchValue as a parameter 
+  // calling API -- searchTerm as a parameter 
   const searchPostcode = async (searchTerm) => {
     const url = `http://api.geonames.org/postalCodeSearchJSON?postalcode=${searchTerm}&maxRows=10&username=catormerod`;
 

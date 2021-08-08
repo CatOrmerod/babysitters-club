@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { Button, Form, Message } from 'semantic-ui-react';
+import { AvForm, AvField, AvCheckboxGroup, AvCheckbox } from 'availity-reactstrap-validation';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_BABYSITTER } from '../../utils/mutations';
@@ -78,7 +78,7 @@ const BabysitterForm = () => {
       [name]: value,
     });
   };
-console.log(formState)
+  console.log(formState)
   return (
     <>
       <h3>Details of your profile</h3>
@@ -90,45 +90,50 @@ console.log(formState)
               <Form className='babysitter-form' onSubmit={handleFormSubmit}>
                 <Row>
                   <Col md="3" sm="4">
-                  <div className="profile-picture">
-                    <h4 className="title">
-                    <small>Avatar</small>
-                    </h4>
-                    <ImageUpload avatar 
-                    setFormState={setFormState}
-                    name="babysitterPic"/>
+                    <div className="profile-picture">
+                      <h4 className="title">
+                        <small>Profile Pic</small>
+                      </h4>
+                      <ImageUpload avatar
+                        setFormState={setFormState}
+                        name="babysitterPic" />
                     </div>
                   </Col>
                 </Row>
                 <Row>
                   <Col md="6" sm="6">
-                    <FormGroup>
+                    <AvForm>
                       <label htmlFor='form-ph'>Phone Number:</label>
-                      <Input
-                      name="babysitterPh"
-                      placeholder="Enter your phone number (it won't be displayed)"
-                      onChange={handleChange}
+                      <AvField
+                        name="babysitterPh"
+                        placeholder="Enter your phone number (it won't be displayed)"
+                        validate={{ tel: true }}
+                        onChange={handleChange}
                       />
-                    </FormGroup>
+                    </AvForm>
                   </Col>
                   <Col md="6" sm="6">
                     <FormGroup>
-                    <label htmlFor='form-cert'>Certificates</label>
-                <Input
-                  name="babysitterCert"
-                  placeholder="What certifications do you have?"
-                  onChange={handleChange}
-                />
+                      <label htmlFor='form-location'>Location</label>
+                      <Location
+                        handleChange={handleChange}
+                        formState={formState}
+                        setFormState={setFormState} />
                     </FormGroup>
                   </Col>
                 </Row>
-                <FormGroup>
-                  <label htmlFor='form-location'>Location</label>
-                  <Location
-                    handleChange={handleChange}
-                    formState={formState}
-                    setFormState={setFormState} />
-                </FormGroup>
+                <AvForm>
+                  <label htmlFor='form-cert'>Certificates</label>
+                  <AvCheckboxGroup inline
+                    name="babysitterCert"
+                    label="Select any Certifications held"
+                    onChange={handleChange}>
+                    <AvCheckbox label="WWCC" value="WWCC" />
+                    <AvCheckbox label="First Aid" value="First Aid" />
+                    <AvCheckbox label="Police Check" value="Police Check" />
+                    <AvCheckbox label="Pikachu" value="Pikachu" />
+                  </AvCheckboxGroup>
+                </AvForm>
                 <FormGroup>
                   <label htmlFor='form-about'>About</label>
                   <Input
@@ -164,11 +169,11 @@ console.log(formState)
               </Form>
             </Col>
           </Row>
-            {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
-                {error.message}
-              </div>
-            )}
+          {error && (
+            <div className="col-12 my-3 bg-danger text-white p-3">
+              {error.message}
+            </div>
+          )}
         </Container>
       ) : (
         <p>

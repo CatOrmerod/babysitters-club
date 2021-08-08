@@ -19,7 +19,7 @@ const babysitterSchema = new Schema({
     },
     babysitterAbout: {
       type: String,
-      required: 'You need to leave a thought!',
+      required: 'You need to write something about yourself',
       minlength: 1,
       maxlength: 280,
       trim: true,

@@ -1,35 +1,18 @@
 import React from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import './footer.css';
+import { FaGithub, FaLinkedin, FaSlack } from "react-icons/fa";
 
 const Footer = () => {
-  const location = useLocation();
-  const history = useHistory();
-  return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
-      <div className="container text-center mb-5">
-        {location.pathname !== '/' && (
-          <button
-            className="btn btn-dark mb-3"
-            onClick={() => history.goBack()}
-          >
-            &larr; Go Back
-          </button>
-        )}
-        <h4>
-          Made with{' '}
-          <span
-            className="emoji"
-            role="img"
-            aria-label="heart"
-            aria-hidden="false"
-          >
-            ❤️
-          </span>{' '}
-          KITTY CAT CODING
-        </h4>
-      </div>
-    </footer>
-  );
+
+    return (
+        <footer class="container-fluid text-center" id="contact-me">
+            <div class="icon-bar">
+                <a href="https://www.linkedin.com/in/cat-ormerod/" className="linkedin" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+                <a href="https://github.com/CatOrmerod" className="github" target="_blank" rel="noreferrer"><FaGithub /></a>
+                <a href="https://usyd-fsf-feb-2021.slack.com/team/U01JL79DMMH" className="Slack" target="_blank" rel="noreferrer"><FaSlack /></a>
+            </div>
+        </footer>
+    );
 };
 
 export default Footer;
