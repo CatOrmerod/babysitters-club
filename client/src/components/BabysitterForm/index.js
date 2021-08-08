@@ -106,7 +106,7 @@ const BabysitterForm = () => {
                       <label htmlFor='form-ph'>Phone Number:</label>
                       <AvField
                         name="babysitterPh"
-                        placeholder="Enter your phone number (it won't be displayed)"
+                        placeholder="+61 XXX XXX XXX"
                         validate={{ tel: true }}
                         onChange={handleChange}
                       />
@@ -145,16 +145,6 @@ const BabysitterForm = () => {
                     rows="3"
                     onChange={handleChange}
                   />
-                  <h5>
-                    <small>
-                      <span
-                        className="pull-right"
-                        id="textarea-limited-message"
-                      >
-                        150 characters left
-                      </span>
-                    </small>
-                  </h5>
                 </FormGroup>
 
                 <div className="text-center">
@@ -170,7 +160,7 @@ const BabysitterForm = () => {
             </Col>
           </Row>
           {error && (
-            <div className="col-12 my-3 bg-danger text-white p-3">
+            <div className="col-12 my-3 p-3">
               {error.message}
             </div>
           )}

@@ -44,9 +44,11 @@ function Navigation() {
             </NavLink>
           </NavItem>
           <NavItem>
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
+            <NavLink
+            href="/"
+            onClick={() => Auth.logout()}
+            >Logout
+            </NavLink>
           </NavItem>
 
         </div>
@@ -78,7 +80,7 @@ function Navigation() {
         <NavbarBrand href="/">Babysitters Club</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          <Nav className="mr-auto flex-row" navbar>
             <NavItem>
               <NavLink
                 className={location.pathname === '/home' ? 'active' : ''}
