@@ -2,8 +2,8 @@
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
-    background-color: var(--purple);
-    color: var(--light);
+    background-color: var(--light);
+    color: var(--purple);
 }
 
   .nav-link {
@@ -15,7 +15,7 @@
   
   .nav-link:hover,
   .nav-link:focus {
-    border-bottom-color: var(--light);
+    border-bottom-color: var(--purple);
   }
   
   .nav-link + .nav-link {

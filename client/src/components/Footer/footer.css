@@ -1,13 +1,13 @@
 /* Add some padding to the footer */
 footer {
-    background-color:  var(--dark);
-    color: var(--mauve);
+    background-color:  var(--light);
+    color: var(--purple);
     position: fixed;
     bottom: 0;
     height: auto;
     z-index: 100;
     font-size: 1.5rem;
-    padding: 25px;
+    margin: 0px;
   }
     
   /* Style the icon bar links */
@@ -15,6 +15,6 @@ footer {
     text-align: center;
     padding: 16px;
     transition: all 0.3s ease;
-    color: var(--light);
+    color: var(--purple);
     font-size: 20px;
   }
