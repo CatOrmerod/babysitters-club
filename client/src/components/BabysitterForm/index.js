@@ -107,14 +107,14 @@ const BabysitterForm = () => {
                       <AvField
                         name="babysitterPh"
                         placeholder="+61 XXX XXX XXX"
-                        validate={{ tel: true }}
+                        validate={{pattern: {value: /^(\+(614))([0-9]{8})$/, errorMessage: 'You must enter an Australian Mobile Phone number in exact format +614XXXXXXXX'}}} 
                         onChange={handleChange}
                       />
                     </AvForm>
                   </Col>
                   <Col md="6" sm="6">
                     <FormGroup>
-                      <label htmlFor='form-location'>Location</label>
+                      <label htmlFor='form-location'>Post Code</label>
                       <Location
                         handleChange={handleChange}
                         formState={formState}
