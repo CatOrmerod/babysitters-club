@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { useDocTitle } from '../../utils/customHooks.js'
 import { Link, useLocation } from "react-router-dom";
 import Auth from "../../utils/auth";
-// nodejs library that concatenates strings
 import classnames from "classnames";
-// JavaScript plugin that hides or shows a component based on your scroll
-// import Headroom from "headroom.js";
+import logo from "../../assets/images/logo.png";
 // reactstrap components
 import {
   Collapse,
@@ -16,6 +14,7 @@ import {
   NavLink,
   Nav,
   Container,
+
 } from "reactstrap";
 // core components
 import './nav.css';
@@ -28,7 +27,7 @@ function Navigation() {
   function showAuthNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <div>
+        <>
           <NavItem>
             <NavLink
               className={location.pathname === '/me' ? 'active' : ''}
@@ -51,11 +50,11 @@ function Navigation() {
             </NavLink>
           </NavItem>
 
-        </div>
+        </>
       );
     } else {
       return (
-        <div>
+        <>
           <NavItem>
             <NavLink
               className={location.pathname === '/register' ? 'active' : ''}
@@ -70,17 +69,20 @@ function Navigation() {
             ><Link to='/login'>Login</Link>
             </NavLink>
           </NavItem>
-        </div>
+        </>
       );
     }
   }
   return (
     <Container>
-      <Navbar expand="md" color="faded" dark>
-        <NavbarBrand href="/">Babysitters Club</NavbarBrand>
+      <Navbar expand="md" color="faded" light>
+        <NavbarBrand href="/">
+          <img src={logo} style={{ width: '300px' }}/>
+          
+          </NavbarBrand>  
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto flex-row" navbar>
+          <Nav horizontal className="mr-auto flex-row" navbar>
             <NavItem>
               <NavLink
                 className={location.pathname === '/home' ? 'active' : ''}
