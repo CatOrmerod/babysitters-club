@@ -25,7 +25,7 @@ const BabysitterList = ({
                 >
                   {babysitter.babysitterAuthor} <br />
                   <span style={{ fontSize: '1rem' }}>
-                    added herself for reviews on {babysitter.createdAt}
+                    is available to {babysitter.createdAt}
                   </span>
                 </Link>
               ) : (
