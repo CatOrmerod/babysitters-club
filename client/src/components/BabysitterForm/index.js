@@ -90,7 +90,7 @@ const BabysitterForm = () => {
               <Form className='babysitter-form' onSubmit={handleFormSubmit}>
                 <Row>
                   <Col md="3" sm="4">
-                    <div className="profile-picture">
+                    <div className="img">
                       <h4 className="title">
                         <small>Profile Pic</small>
                       </h4>
@@ -131,7 +131,7 @@ const BabysitterForm = () => {
                     <AvCheckbox label="WWCC" value="WWCC" />
                     <AvCheckbox label="First Aid" value="First Aid" />
                     <AvCheckbox label="Police Check" value="Police Check" />
-                    <AvCheckbox label="Pikachu" value="Pikachu" />
+                    <AvCheckbox label="Early Childhood Degree" value="Pikachu" />
                   </AvCheckboxGroup>
                 </AvForm>
                 <FormGroup>
@@ -168,7 +168,7 @@ const BabysitterForm = () => {
       ) : (
         <p>
           You need to be logged in to add yourself to our database. Please{' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+          <Link to="/login">login</Link> or <Link to="/register">register.</Link>
         </p>
       )}
     </>
