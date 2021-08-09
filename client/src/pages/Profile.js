@@ -42,22 +42,17 @@ const Profile = () => {
           Viewing {userParam ? `${user.email}'s` : 'your'} profile.
         </h2>
         </Row>
-        <Row  xs="1" sm="1" md="2">
-          <Col>
+        <Row>
           <BabysitterList
             babysitters={user.babysitters}
             title={`${user.email}'s babysitter profile`}
             showTitle={false}
             showUsername={false}
           />
-        </Col>
-        
         {!userParam && (
-          <Col>
             <BabysitterForm 
             babysitters={user.babysitters}
             />
-          </Col>
         )}
         </Row>
     </div>
