@@ -12,7 +12,7 @@ import './App.css';
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Nav from './components/Nav';
-// import Header from './components/Header';
+import Profile2 from './components/Sample/Profile2.js';
 import Footer from './components/Footer';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -51,8 +51,8 @@ function App() {
             <Route exact path="/home" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Signup} />
+            <Route exact path="/profiles/:email" component={Profile} />
             <Route exact path="/me" component={Profile} />
-            <Route exact path="/profiles/:username" component={Profile} />
             <Route exact path="/babysitters/:babysitterId" component={SingleBabysitter} />
             <Route exact path="/saved" component={SavedBabysitters} />
             <Route component={NoMatch} />

@@ -53,7 +53,7 @@ const Profile = () => {
             className="col-12 col-md-10 mb-3 p-3"
           >
             <BabysitterForm 
-            babysitters={user.babysitters}
+            
             />
           </div>
         )}
