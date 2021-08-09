@@ -24,7 +24,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  babysitters: [Babysitter.schema],
+  babysitters: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Babysitter',
+  }],
   savedBabysitters: [{
     type: Schema.Types.ObjectId,
     ref: 'Babysitter',
