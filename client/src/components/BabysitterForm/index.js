@@ -65,6 +65,14 @@ const BabysitterForm = () => {
           babysitterEmail: Auth.getProfile().data.email,
         },
       });
+      //clear fields after add babysitter
+      setFormState({
+        babysitterAbout: '',
+        babysitterLoc: '',
+        babysitterCert: '',
+        babysitterPic: '',
+        babysitterPh: '',
+      });
     } catch (e) {
       console.error(e);
     }
@@ -87,7 +95,9 @@ const BabysitterForm = () => {
         <Container>
           <Row>
             <Col className="ml-auto mr-auto" md="6">
-              <Form className='babysitter-form' onSubmit={handleFormSubmit}>
+              <Form 
+              className='babysitter-form' 
+              onSubmit={handleFormSubmit}>
                 <Row>
                   <Col md="3" sm="4">
                     <div className="img">
@@ -140,8 +150,6 @@ const BabysitterForm = () => {
                     name="babysitterAbout"
                     placeholder="Tell us all about yourself."
                     className="textarea"
-                    type="textarea"
-                    maxLength="1256"
                     rows="3"
                     onChange={handleChange}
                   />

@@ -12,7 +12,6 @@ import './App.css';
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Nav from './components/Nav';
-import Profile2 from './components/Sample/Profile2.js';
 import Footer from './components/Footer';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
