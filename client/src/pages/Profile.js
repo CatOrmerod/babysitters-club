@@ -18,7 +18,8 @@ const Profile = () => {
   if (Auth.loggedIn() && Auth.getProfile().data.email === userParam) {
     return <Redirect to="/me" />;
   }
-
+  console.log(user)
+  
   if (loading) {
     return <div>Loading...</div>;
   }

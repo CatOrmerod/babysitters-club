@@ -16,14 +16,14 @@ const BabysitterList = ({
   return (
     <Container>
       {showTitle && <h3>{title}</h3>}
-      <Row xs="1" sm="2" md="4">
+      <Row xs="1" sm="1" md="2" lg="3">
           
             {babysitters &&
               babysitters.map((babysitter) => (
                 <div key={babysitter._id}>
                   <Col>
                   {/* <CardDeck> */}
-                  <Card className='card'>
+                  <Card className='card h-100'>
                   <CardHeader className="card-header p-2 m-0">
                     {showUsername ? (
                       <Link

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Container, Col, Card, CardTitle, CardBody, CardText, Button, CardImg } from 'reactstrap';
+import { Jumbotron, Row, Container, Col, Card, CardTitle, CardBody, CardText, Button, CardImg } from 'reactstrap';
 
 import Auth from '../utils/auth';
 import { useMutation, useQuery } from '@apollo/client';
@@ -34,7 +34,7 @@ const SavedBabysitters = () => {
     }
 
     try {
-      
+
       await removeSavedBabysitter({
         variables: { babysitterId }
       });
@@ -56,32 +56,35 @@ const SavedBabysitters = () => {
   return (
     <>
       <Container>
-        <h2>
-          {userData.savedBabysitters?.length
-            ? `Viewing ${userData.savedBabysitters.length} saved ${userData.savedBabysitters.length === 1 ? 'babysitter' : 'babysitters'}:`
-            : 'You have no saved babysitters!'}
-        </h2>
-        <Col>
+        <Row>
+          <h2>
+            {userData.savedBabysitters?.length
+              ? `Viewing ${userData.savedBabysitters.length} saved ${userData.savedBabysitters.length === 1 ? 'babysitter' : 'babysitters'}:`
+              : 'You have no saved babysitters!'}
+          </h2>
+        </Row>
+        <Row xs="1" sm="1" md="2">
           {userData.savedBabysitters.map((babysitter) => {
-            return (
+            
+              return (
+              <Col>
               <Card key={babysitter.babysitterId} border='dark'>
-                {babysitter.babysitterPic ? <CardImg src={babysitter.babysitterPic} alt={`The cover for ${babysitter.babysitterAuthor }`} className="img" variant='top' /> : null}
+                {babysitter.babysitterPic ? <CardImg src={babysitter.babysitterPic} alt={`The cover for ${babysitter.babysitterAuthor}`} className="img" variant='top' /> : null}
                 <CardBody>
                   <CardTitle>
-                    
-                      {babysitter.babysitterFirst}
-                    
+                    Name:  {babysitter.babysitterAuthor}
                   </CardTitle>
-                  <p className='small'>Name: {babysitter.babysitterFirst}</p>
                   <CardText>{babysitter.babysitterAbout}</CardText>
-                  <Button className='btn-block btn-danger' onClick={() => handleDeleteBabysitter(babysitter.babysitterId)}>
+                  <Button className='btn' onClick={() => handleDeleteBabysitter(babysitter.babysitterId)}>
                     Delete this Babysitter!
                   </Button>
                 </CardBody>
               </Card>
-            );
+              </Col>
+              );
+            
           })}
-        </Col>
+        </Row>
       </Container>
     </>
   );
