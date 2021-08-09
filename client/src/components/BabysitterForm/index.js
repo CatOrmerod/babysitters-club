@@ -131,12 +131,11 @@ const BabysitterForm = () => {
                   <label htmlFor='form-cert'>Certificates</label>
                   <AvCheckboxGroup inline
                     name="babysitterCert"
-                    label="Select any Certifications held"
                     onChange={handleChange}>
                     <AvCheckbox label="WWCC" value="WWCC" />
                     <AvCheckbox label="First Aid" value="First Aid" />
                     <AvCheckbox label="Police Check" value="Police Check" />
-                    <AvCheckbox label="Early Childhood Degree" value="Pikachu" />
+                    <AvCheckbox label="Early Childhood Degree" value="Early Childhood Degree" />
                   </AvCheckboxGroup>
                 </AvForm>
                 <FormGroup>
