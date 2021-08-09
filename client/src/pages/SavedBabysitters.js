@@ -10,7 +10,6 @@ const SavedBabysitters = () => {
   const [removeSavedBabysitter, { error }] = useMutation(REMOVE_SAVED_BABYSITTER);
   const { loading, data } = useQuery(QUERY_ME);
   const userData = data?.me || data?.user || {};
-  console.log(userData)
 
   if (loading) {
     return <div>Loading...</div>;
@@ -68,14 +67,14 @@ const SavedBabysitters = () => {
             
               return (
               <Col>
-              <Card key={babysitter.babysitterId} border='dark'>
+              <Card key={babysitter._id} border='dark'>
                 {babysitter.babysitterPic ? <CardImg src={babysitter.babysitterPic} alt={`The cover for ${babysitter.babysitterAuthor}`} className="img" variant='top' /> : null}
                 <CardBody>
                   <CardTitle>
                     Name:  {babysitter.babysitterAuthor}
                   </CardTitle>
                   <CardText>{babysitter.babysitterAbout}</CardText>
-                  <Button className='btn' onClick={() => handleDeleteBabysitter(babysitter.babysitterId)}>
+                  <Button className='btn' onClick={() => handleDeleteBabysitter(babysitter._id)}>
                     Delete this Babysitter!
                   </Button>
                 </CardBody>

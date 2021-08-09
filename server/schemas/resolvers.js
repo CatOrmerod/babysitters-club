@@ -134,12 +134,15 @@ const resolvers = {
     },
     removeSavedBabysitter: async (parent, { babysitterId }, context) => {
       if (context.user) {
+        console.log(babysitterId);
           const updatedUser = await User.findOneAndUpdate(
               { _id: context.user._id },
-              { $pull: { savedBabysitters: { babysitterId: babysitterId } } },
+              { $pull: { savedBabysitters: babysitterId } },
               { new: true }
+              
           );
           return updatedUser;
+          
       }
       throw new AuthenticationError('You need to be logged in!');
     },
