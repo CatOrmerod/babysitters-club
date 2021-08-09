@@ -57,6 +57,7 @@ function Navigation() {
         <>
           <NavItem>
             <NavLink
+              href="/register"
               className={location.pathname === '/register' ? 'active' : ''}
               onClick={() => setDocTitle("Babysitters Club :: Signup")}
             ><Link to='/register'>Register</Link>
@@ -82,7 +83,7 @@ function Navigation() {
           </NavbarBrand>  
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav horizontal className="mr-auto flex-row" navbar>
+          <Nav className="mr-auto" navbar>
             <NavItem>
               <NavLink
                 className={location.pathname === '/home' ? 'active' : ''}
