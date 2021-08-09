@@ -97,7 +97,10 @@ console.log(babysitter)
               : 'Save this Babysitter!'}
           </Button>
         )}
-        <SMSForm babysitterPh={babysitter.babysitterPh} />
+        <SMSForm 
+        babysitterPh={babysitter.babysitterPh}
+        babysitterAuthor={babysitter.babysitterAuthor}
+         />
         <div className="my-5">
           <RatingList ratings={babysitter.ratings} />
         </div>

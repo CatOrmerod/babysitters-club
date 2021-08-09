@@ -76,7 +76,6 @@ const BabysitterForm = () => {
     } catch (e) {
       console.error(e);
     }
-    //clear fields after add babysitter
   };
 
   const handleChange = (event) => {
@@ -99,16 +98,12 @@ const BabysitterForm = () => {
               className='babysitter-form' 
               onSubmit={handleFormSubmit}>
                 <Row>
-                  <Col md="3" sm="4">
-                    <div className="img">
                       <h4 className="title">
                         <small>Profile Pic</small>
                       </h4>
                       <ImageUpload avatar
                         setFormState={setFormState}
                         name="babysitterPic" />
-                    </div>
-                  </Col>
                 </Row>
                 <Row>
                   <Col md="6" sm="6">

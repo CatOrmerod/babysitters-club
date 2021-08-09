@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Col,  } from 'reactstrap';
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import BabysitterForm from '../components/BabysitterForm';
@@ -8,7 +9,6 @@ import Auth from '../utils/auth';
 
 const Profile = () => {
   const { email: userParam } = useParams();
-
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { email: userParam },
   });
@@ -18,7 +18,7 @@ const Profile = () => {
   if (Auth.loggedIn() && Auth.getProfile().data.email === userParam) {
     return <Redirect to="/me" />;
   }
-  console.log(user)
+  console.log(user.babysitters)
   
   if (loading) {
     return <div>Loading...</div>;
@@ -35,29 +35,31 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="flex-row justify-center mb-3">
+      
+      
+      <Row>
         <h2 className="col-12 col-md-10 p-3 mb-5">
           Viewing {userParam ? `${user.email}'s` : 'your'} profile.
         </h2>
-
-        <div className="col-12 col-md-10 mb-5">
+        </Row>
+        <Row  xs="1" sm="1" md="2">
+          <Col>
           <BabysitterList
             babysitters={user.babysitters}
-            title={`${user.email}'s thoughts...`}
+            title={`${user.email}'s babysitter profile`}
             showTitle={false}
             showUsername={false}
           />
-        </div>
+        </Col>
+        
         {!userParam && (
-          <div
-            className="col-12 col-md-10 mb-3 p-3"
-          >
+          <Col>
             <BabysitterForm 
-            
+            babysitters={user.babysitters}
             />
-          </div>
+          </Col>
         )}
-      </div>
+        </Row>
     </div>
   );
 };
