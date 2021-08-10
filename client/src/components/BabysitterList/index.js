@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, Card, CardHeader, CardBody, CardText, CardImg, CardFooter } from 'reactstrap';
+import { Container, Row, Col, CardDeck, Card, CardHeader, CardBody, CardText, CardImg, CardFooter } from 'reactstrap';
 // import FavouriteButton from '../FavouriteButton';
 import './babysitter.css';
 
@@ -18,13 +18,11 @@ const BabysitterList = ({
     <Container>
       {showTitle && <h3>{title}</h3>}
       <Row xs="1" sm="1" md="2" lg="3">
-          
             {babysitters &&
               babysitters.map((babysitter) => (
                 <div key={babysitter._id}>
                   <Col>
-                  {/* <CardDeck> */}
-                  <Card className='card h-100'>
+                  <Card className="card">
                   <CardHeader className="card-header p-2 m-0">
                     {showUsername ? (
                       <Link
@@ -44,8 +42,8 @@ const BabysitterList = ({
                       </>
                     )}
                   </CardHeader>
-                  <CardBody className="card-body bg-light p-2">
-                    <CardImg src={babysitter.babysitterPic} className="card-img" />
+                  <CardBody className="card-body p-2">
+                    <CardImg src={babysitter.babysitterPic} className="img" />
                     <CardText>About {babysitter.babysitterAuthor}: {babysitter.babysitterAbout}</CardText>
                     <CardText>Certifications Held: {babysitter.babysitterCert}</CardText>
                   </CardBody>
@@ -57,11 +55,8 @@ const BabysitterList = ({
                     >
                       See More
                     </Link>
-                    {/* <FavouriteButton 
-                    babysitterId={babysitter._id}/> */}
                   </CardFooter>
                   </Card>
-                  {/* </CardDeck> */}
                   </Col>
                 </div>
               ))}

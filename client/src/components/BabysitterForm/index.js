@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AvForm, AvField, AvCheckboxGroup, AvCheckbox } from 'availity-reactstrap-validation';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { ADD_BABYSITTER } from '../../utils/mutations';
+import { ADD_BABYSITTER, UPDATE_BABYSITTER_PROFILE } from '../../utils/mutations';
 import { QUERY_BABYSITTERS, QUERY_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
 import ImageUpload from '../ImageUpload';
@@ -47,6 +47,53 @@ const BabysitterForm = () => {
       });
     },
   });
+  // const [updateProfile] = useMutation(UPDATE_BABYSITTER_PROFILE, {
+  //   update(cache, { data: { updateProfile } }) {
+  //     try {
+  //       const { babysitters } = cache.readQuery({ query: QUERY_BABYSITTERS });
+
+  //       cache.writeQuery({
+  //         query: QUERY_BABYSITTERS,
+  //         data: { babysitters: [updateProfile, ...babysitters] },
+  //       });
+  //     } catch (e) {
+  //       console.error(e);
+  //     }
+
+  //     // update me object's cache
+  //     const { me } = cache.readQuery({ query: QUERY_ME });
+  //     cache.writeQuery({
+  //       query: QUERY_ME,
+  //       data: { me: { ...me, babysitters: [...me.babysitters, updateProfile] } },
+  //     });
+  //   },
+  // });
+
+  // const handleUpdate = async (event) => {
+  //   event.preventDefault();
+
+  //   try {
+  //     const { data } = await updateProfile({
+  //       variables: {
+  //         babysitterAbout: formState.babysitterAbout,
+  //         babysitterLoc: formState.babysitterLoc,
+  //         babysitterCert: formState.babysitterCert,
+  //         babysitterPic: formState.babysitterPic,
+  //         babysitterPh: formState.babysitterPh,
+  //       },
+  //     });
+  //     //clear fields after add babysitter
+  //     setFormState({
+  //       babysitterAbout: '',
+  //       babysitterLoc: '',
+  //       babysitterCert: '',
+  //       babysitterPic: '',
+  //       babysitterPh: '',
+  //     }); 
+  //   } catch (e) {
+  //     console.error(e);
+  //   }
+  // };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -73,6 +120,7 @@ const BabysitterForm = () => {
         babysitterPic: '',
         babysitterPh: '',
       });
+      window.location.reload()
     } catch (e) {
       console.error(e);
     }
@@ -94,16 +142,17 @@ const BabysitterForm = () => {
         <Container>
           <Row>
             <Col className="ml-auto mr-auto" md="6">
-              <Form 
-              className='babysitter-form' 
-              onSubmit={handleFormSubmit}>
+              <Form
+                className='babysitter-form'
+                onSubmit={handleFormSubmit}>
                 <Row>
-                      <h4 className="title">
-                        <small>Profile Pic</small>
-                      </h4>
-                      <ImageUpload avatar
-                        setFormState={setFormState}
-                        name="babysitterPic" />
+                  <h4 className="title">
+                    <small>Profile Pic</small>
+                  </h4>
+                  <ImageUpload avatar
+                    setFormState={setFormState}
+                    name="babysitterPic"
+                  />
                 </Row>
                 <Row>
                   <Col md="6" sm="6">
@@ -112,7 +161,7 @@ const BabysitterForm = () => {
                       <AvField
                         name="babysitterPh"
                         placeholder="+61 XXX XXX XXX"
-                        validate={{pattern: {value: /^(\+(614))([0-9]{8})$/, errorMessage: 'You must enter an Australian Mobile Phone number in exact format +614XXXXXXXX'}}} 
+                        validate={{ pattern: { value: /^(\+(614))([0-9]{8})$/, errorMessage: 'You must enter an Australian Mobile Phone number in exact format +614XXXXXXXX' } }}
                         onChange={handleChange}
                       />
                     </AvForm>
@@ -129,14 +178,11 @@ const BabysitterForm = () => {
                 </Row>
                 <AvForm>
                   <label htmlFor='form-cert'>Certificates</label>
-                  <AvCheckboxGroup inline
+                  <AvField
                     name="babysitterCert"
-                    onChange={handleChange}>
-                    <AvCheckbox label="WWCC" value="WWCC" />
-                    <AvCheckbox label="First Aid" value="First Aid" />
-                    <AvCheckbox label="Police Check" value="Police Check" />
-                    <AvCheckbox label="Early Childhood Degree" value="Early Childhood Degree" />
-                  </AvCheckboxGroup>
+                    placeholder="e.g. WWCC, First Aid, Police Check, Early-Childhood Degree"
+                    onChange={handleChange}
+                    />
                 </AvForm>
                 <FormGroup>
                   <label htmlFor='form-about'>About</label>
@@ -148,7 +194,6 @@ const BabysitterForm = () => {
                     onChange={handleChange}
                   />
                 </FormGroup>
-
                 <div className="text-center">
                   <Button
                     className="btn-wd btn-round"
@@ -157,6 +202,14 @@ const BabysitterForm = () => {
                   >
                     Save
                   </Button>
+                  {/* <Button
+                    className="btn-wd btn-round"
+                    outline
+                    color="info"
+                    onClick={handleUpdate}
+                  >
+                    Update Profile
+                  </Button> */}
                 </div>
               </Form>
             </Col>
