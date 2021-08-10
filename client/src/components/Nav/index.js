@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDocTitle } from '../../utils/customHooks.js'
 import { Link, useLocation } from "react-router-dom";
 import Auth from "../../utils/auth";
+import classnames from "classnames";
 import logo from "../../assets/images/logo.png";
 // reactstrap components
 import {

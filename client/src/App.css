@@ -55,16 +55,21 @@ main {
   padding: 100px ;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;  
+}
+
 /* Cards Styling  */
 .card {
-  /* border: 2px solid var(--dark); */
-  /* border-radius: var(--border-radius); */
   color: var(--light);
   background-color: var(--grey);
   margin: 0.625rem 0;
   transition: all 0.5s ease-in-out;
   padding: 0 20px;
-  /* box-shadow: 2px 2px var(--green); */
+  height: 100%;
 }
 
 .profile-picture .fileinput-new img {

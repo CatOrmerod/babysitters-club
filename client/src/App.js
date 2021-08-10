@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {
   ApolloClient,
@@ -42,7 +42,6 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-      <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
           <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
@@ -56,7 +55,6 @@ function App() {
             <Route component={NoMatch} />
           </Switch>
           <Footer />
-        </div>
       </Router>
     </ApolloProvider>
   );
