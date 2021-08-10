@@ -16,7 +16,7 @@ const Location = ({ handleChange, formState, setFormState }) => {
   }
   // calling API -- searchTerm as a parameter 
   const searchPostcode = async (searchTerm) => {
-    const url = `http://api.geonames.org/postalCodeSearchJSON?postalcode=${searchTerm}&maxRows=15&username=catormerod`;
+    const url = `https://cors-anywhere.herokuapp.com/http://api.geonames.org/postalCodeSearchJSON?postalcode=${searchTerm}&maxRows=15&username=catormerod`;
 
     const response = await fetch(url);
     const responseJson = await response.json();
