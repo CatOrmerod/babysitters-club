@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Form, Input, Button} from 'reactstrap'
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_RATING } from '../../utils/mutations';
@@ -51,27 +52,27 @@ const RatingForm = ({ babysitterId }) => {
             Character Count: {characterCount}/280
             {error && <span className="ml-2">{error.message}</span>}
           </p>
-          <form
+          <Form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9">
-              <textarea
+              <Input
                 name="ratingText"
                 placeholder="Add your comment..."
                 
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
-              ></textarea>
+              ></Input>
             </div>
 
             <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
+              <Button className="btn" type="submit">
                 Add Review
-              </button>
+              </Button>
             </div>
-          </form>
+          </Form>
         </>
       ) : (
         <p>

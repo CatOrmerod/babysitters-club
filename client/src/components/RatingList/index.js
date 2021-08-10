@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card, CardBody, CardHeader } from 'reactstrap';
 
 const RatingList = ({ ratings = [] }) => {
   if (!ratings.length) {
@@ -17,15 +18,15 @@ const RatingList = ({ ratings = [] }) => {
         {ratings &&
           ratings.map((rating) => (
             <div key={rating._id} className="col-12 mb-3 pb-3">
-              <div className="p-3 bg-dark text-light">
-                <h5 className="card-header">
+              <Card className="card">
+                <CardHeader className="card-header">
                   {rating.ratingAuthor} commented{' '}
                   <span style={{ fontSize: '0.825rem' }}>
                     on {rating.createdAt}
                   </span>
-                </h5>
-                <p className="card-body">{rating.ratingText}</p>
-              </div>
+                </CardHeader>
+                <CardBody className="card-body">{rating.ratingText}</CardBody>
+              </Card>
             </div>
           ))}
       </div>
