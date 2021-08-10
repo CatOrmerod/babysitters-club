@@ -67,7 +67,7 @@ const SavedBabysitters = () => {
             
               return (
               <Col>
-              <Card key={babysitter._id} border='dark'>
+              <Card key={babysitter._id} border='dark' className="card">
                 {babysitter.babysitterPic ? <CardImg src={babysitter.babysitterPic} alt={`The cover for ${babysitter.babysitterAuthor}`} className="img" variant='top' /> : null}
                 <CardBody>
                   <CardTitle>

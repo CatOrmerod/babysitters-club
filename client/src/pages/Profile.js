@@ -35,8 +35,6 @@ const Profile = () => {
 
   return (
     <div>
-      
-      
       <Row>
         <h2 className="col-12 col-md-10 p-3 mb-5">
           Viewing {userParam ? `${user.email}'s` : 'your'} profile.
