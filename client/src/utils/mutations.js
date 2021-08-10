@@ -59,6 +59,27 @@ export const ADD_BABYSITTER = gql`
   }
 `;
 
+export const UPDATE_BABYSITTER_PROFILE = gql`
+	mutation updateBabysitter(
+    $babysitterId: ID!
+    $babysitterAbout: String!
+    $babysitterLoc: String
+    $babysitterCert: String
+    $babysitterPic: String
+    $babysitterPh: String
+  ) {
+		updateBabysitter(babysitterId: $babysitterId, babysitterAbout: $babysitterAbout, babysitterLoc: $babysitterLoc, babysitterCert: $babysitterCert, babysitterPic: $babysitterPic, babysitterPh: $babysitterPh) {
+      _id
+      babysitterAbout
+      babysitterLoc
+      babysitterCert
+      babysitterPic
+      babysitterPh
+      babysitterAuthor
+    }
+	}
+`;
+
 export const ADD_RATING = gql`
   mutation addRating($babysitterId: ID!, $ratingText: String!) {
     addRating(babysitterId: $babysitterId, ratingText: $ratingText) {

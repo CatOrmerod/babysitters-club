@@ -64,6 +64,7 @@ type Mutation {
   addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
   login(email: String!, password: String!): Auth
   addBabysitter(babysitterAbout: String!, babysitterLoc: String, babysitterCert: String, babysitterPic: String, babysitterPh: String): Babysitter
+  updateBabysitter(babysitterId: ID!, babysitterAbout: String!, babysitterLoc: String, babysitterCert: String, babysitterPic: String, babysitterPh: String): Babysitter
   addRating(babysitterId: ID!, ratingText: String!): Babysitter
   removeBabysitter(babysitterId: ID!): Babysitter
   removeRating(babysitterId: ID!, ratingId: ID!): Babysitter

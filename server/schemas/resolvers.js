@@ -71,6 +71,18 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    updateBabysitter: async (parent, { babysitterId, babysitterAbout, babysitterLoc, babysitterCert, babysitterPic, babysitterPh }, context) => {
+			if (context.user) {
+				return await Babysitter.findOneAndUpdate(
+					{_id: babysitterId},
+					{babysitterAbout, babysitterLoc, babysitterCert, babysitterPic, babysitterPh },
+					{
+						new: true,
+					}
+				);
+			}
+			throw new AuthenticationError('Must be logged in!');
+		},
     addRating: async (parent, { babysitterId, ratingText }, context) => {
       if (context.user) {
         return Babysitter.findOneAndUpdate(
