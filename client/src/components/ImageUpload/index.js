@@ -3,8 +3,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import './image.css';
 
-import { Button, Container, Row, Col,  } from "reactstrap";
-
 import defaultImage from "../../assets/images/image_placeholder.jpg";
 import defaultAvatar from "../../assets/images/placeholder.jpg";
 
@@ -33,14 +31,14 @@ function ImageUpload(props) {
       reader.readAsDataURL(file);
     }
   };
-  const handleClick = () => {
-    fileInput.current.click();
-  };
-  const handleRemove = () => {
-    props.setFormState(null);
-    setImagePreviewUrl(props.avatar ? defaultAvatar : defaultImage);
-    fileInput.current.value = null;
-  };
+  // const handleClick = () => {
+  //   fileInput.current.click();
+  // };
+  // const handleRemove = () => {
+  //   props.setFormState(null);
+  //   setImagePreviewUrl(props.avatar ? defaultAvatar : defaultImage);
+  //   fileInput.current.value = null;
+  // };
   return (
     <div className="fileinput text-center fileinput-new" data-provides='fileinput'>
       <div className={"thumbnail" + (props.avatar ? " img-circle" : "")}>
