@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, Card, CardDeck, CardHeader, CardTitle, CardBody, CardText, CardImg, CardFooter } from 'reactstrap';
+import { Container, Row, Col, Card, CardHeader, CardBody, CardText, CardImg, CardFooter } from 'reactstrap';
+// import FavouriteButton from '../FavouriteButton';
 import './babysitter.css';
 
 const BabysitterList = ({
@@ -49,12 +50,15 @@ const BabysitterList = ({
                     <CardText>Certifications Held: {babysitter.babysitterCert}</CardText>
                   </CardBody>
                   <CardFooter>
+                    
                     <Link
                       className="btn"
                       to={`/babysitters/${babysitter._id}`}
                     >
                       See More
                     </Link>
+                    {/* <FavouriteButton 
+                    babysitterId={babysitter._id}/> */}
                   </CardFooter>
                   </Card>
                   {/* </CardDeck> */}

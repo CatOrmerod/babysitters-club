@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Row, Container, Col, Card, CardTitle, CardBody, CardText, Button, CardImg } from 'reactstrap';
+import { Row, Container, Col, Card, CardTitle, CardBody, CardText, Button, CardImg } from 'reactstrap';
 
 import Auth from '../utils/auth';
 import { useMutation, useQuery } from '@apollo/client';
@@ -41,7 +41,7 @@ const SavedBabysitters = () => {
       if (error) {
         throw new Error('something went wrong!');
       }
-
+      window.location.reload()
     } catch (err) {
       console.error(err);
     }

@@ -31,7 +31,6 @@ const SingleBabysitter = () => {
     // pass URL parameter
     variables: { babysitterId: babysitterId },
   });
-console.log(babysitterId)
   const babysitter = data?.babysitter || {};
 
   // create function to handle saving a book to our database
@@ -49,20 +48,22 @@ console.log(babysitterId)
     try {
       // const response = await saveBabysitter(bookToSave, token);
       // use SAVE_BOOK mutation
-      await saveBabysitter({
+      console.log('testing line 52');
+      const datab = await saveBabysitter({
         variables: { babysitterId }
       });
-
+console.log(datab);
       if (error) {
         throw new Error('something went wrong!');
       }
       // if book successfully saves to user's account, save book id to state
       setSavedBabysitterIds([...savedBabysitterIds, babysitterId]);
+      window.location.reload()
     } catch (err) {
+      
       console.error(err);
     }
   };
-console.log(babysitter)
   if (loading) {
     return <div>Loading...</div>;
   }

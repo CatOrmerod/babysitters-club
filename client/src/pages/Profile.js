@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col,  } from 'reactstrap';
+import { Row } from 'reactstrap';
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import BabysitterForm from '../components/BabysitterForm';

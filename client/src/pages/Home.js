@@ -3,7 +3,6 @@ import { Container, Row, Col } from 'reactstrap';
 import { useQuery } from '@apollo/client';
 
 import BabysitterList from '../components/BabysitterList';
-import BabysitterForm from '../components/BabysitterForm';
 import {FaQuestionCircle, FaHeart} from 'react-icons/fa'
 import {HiCurrencyDollar} from 'react-icons/hi'
 
