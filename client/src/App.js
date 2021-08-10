@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {
   ApolloClient,
@@ -18,7 +18,6 @@ import Login from './pages/Login';
 import SingleBabysitter from './pages/SingleBabysitter';
 import Profile from './pages/Profile';
 import SavedBabysitters from './pages/SavedBabysitters';
-import Location from './components/Location';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
